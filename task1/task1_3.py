@@ -90,7 +90,7 @@ def test_find_all(make_linked_list, values, param, expected):
 ])
 def test_len(make_linked_list, values, expected):
     linked_list = make_linked_list(values)
-    linked_list.len() == expected
+    assert linked_list.len() == expected
 
 @pytest.mark.parametrize("values, param, position, expected", [
     ([0], 1, 0, [0, 1]),
