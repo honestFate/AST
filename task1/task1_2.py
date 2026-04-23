@@ -1,6 +1,11 @@
 from task1 import LinkedList, Node
 
-
+"""
+task - 1.8
+function for creation new linked list where l[0] = l1[0] + l2[0]
+time - O(n)
+memory - O(n)
+"""
 def linked_list_sum(l1, l2):
     if l1.len() != l2.len():
         return None
