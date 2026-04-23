@@ -1,5 +1,6 @@
 import pytest
 from task1 import Node, LinkedList
+from task1_2 import linked_list_sum
 
 def check_head_and_tail(linkedList, expected):
     if len(expected) == 0:
@@ -106,3 +107,20 @@ def test_insert_node(make_linked_list, linked_list_to_list, get_node_by_id, valu
         linkedList.insert(get_node_by_id(linkedList, position), Node(param))
     check_head_and_tail(linkedList, expected)
     assert linked_list_to_list(linkedList) == expected
+
+@pytest.mark.parametrize("values_1, values_2, expected", [
+    ([0], [0], [0]),
+    ([0], [1], [1]),
+    ([1], [0], [1]),
+    ([1], [1], [2]),
+    ([], [], []),
+    ([10], [1], [11]),
+    ([1], [10], [11]),
+    ([21, 21, 21, 42], [21, 21, 21, 42], [42, 42, 42, 84]),
+    ([1], [1], [2])
+])
+def test_list_sum(make_linked_list, linked_list_to_list, values_1, values_2, expected):
+    linkedList_1 = make_linked_list(values_1)
+    linkedList_2 = make_linked_list(values_2)
+    result = linked_list_sum(linkedList_1, linkedList_2)
+    assert linked_list_to_list(result) == expected

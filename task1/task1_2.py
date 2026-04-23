@@ -10,4 +10,5 @@ def linked_list_sum(l1, l2):
         result_node = Node(l1_node.value + l2_node.value)
         result.add_in_tail(result_node)
         l1_node = l1_node.next
+        l2_node = l2_node.next
     return result
