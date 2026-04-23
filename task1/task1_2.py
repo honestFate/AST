@@ -14,6 +14,7 @@ def linked_list_sum(l1, l2):
         l2_node = l2_node.next
     return result
 
+
 """
 task: 1.1
 name: delete node from linked list method
