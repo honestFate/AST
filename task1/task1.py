@@ -50,13 +50,13 @@ class LinkedList:
                 else:
                     self.head = node.next
                 if node.next is None:
-                    self.tail = node
+                    self.tail = prev_node
                 if not all:
                     return
             else:
                 prev_node = node
             node = node.next
-        return 
+        return
 
     def clean(self):
         self.head = None
