@@ -126,3 +126,4 @@ def test_list_sum(make_linked_list, linked_list_to_list, values_1, values_2, exp
     linked_list_2 = make_linked_list(values_2)
     result = linked_list_sum(linked_list_1, linked_list_2)
     assert linked_list_to_list(result) == expected
+

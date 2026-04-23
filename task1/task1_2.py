@@ -13,3 +13,4 @@ def linked_list_sum(l1, l2):
         l1_node = l1_node.next
         l2_node = l2_node.next
     return result
+
