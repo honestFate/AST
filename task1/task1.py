@@ -56,7 +56,6 @@ class LinkedList:
             else:
                 prev_node = node
             node = node.next
-        return
 
     def clean(self):
         self.head = None
