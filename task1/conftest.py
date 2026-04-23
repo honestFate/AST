@@ -20,3 +20,14 @@ def linked_list_to_list():
             node = node.next
         return values
     return _make_list
+
+@pytest.fixture
+def get_node_by_id():
+    def _get_node(linkedList, id):
+        i = 0
+        node = linkedList.head
+        while node is not None and i != id:
+            i += 1
+            node = node.next
+        return node
+    return _get_node
