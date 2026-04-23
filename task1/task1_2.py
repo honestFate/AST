@@ -1,4 +1,5 @@
-from task1 import Node, LinkedList
+from task1 import LinkedList, Node
+
 
 def linked_list_sum(l1, l2):
     if l1.len() != l2.len():
