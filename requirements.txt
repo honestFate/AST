@@ -1,7 +1,17 @@
+cfgv==3.5.0
 colorama==0.4.6
+distlib==0.4.0
+filelock==3.29.0
+identify==2.6.19
 iniconfig==2.3.0
+nodeenv==1.10.0
 packaging==26.1
+platformdirs==4.9.6
 pluggy==1.6.0
+pre_commit==4.6.0
 Pygments==2.20.0
 pytest==9.0.3
+python-discovery==1.2.2
+PyYAML==6.0.3
 ruff==0.15.11
+virtualenv==21.2.4

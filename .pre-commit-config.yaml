@@ -1,7 +1,14 @@
 repos:
   - repo: local
-		hooks:
-		  - id: ruff
+    hooks:
+      - id: ruff
         name: linter
-		  - id: pytest
+        entry: ruff check
+        types: [python]
+        language: system
+      - id: pytest
         name: tests
+        entry: pytest
+        args: ["task1/task1_3.py"]
+        language: system
+        pass_filenames: false
