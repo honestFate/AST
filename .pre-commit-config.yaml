@@ -1,0 +1,7 @@
+repos:
+  - repo: local
+		hooks:
+		  - id: ruff
+        name: linter
+		  - id: pytest
+        name: tests
