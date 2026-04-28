@@ -53,6 +53,6 @@ def test_insert_index_exception(make_dyn_array, values, pos):
 def test_delete_index_exception(make_dyn_array, values, pos):
     arr = make_dyn_array(values)
     with pytest.raises(IndexError):
-        arr.insert(pos, "some value")
+        arr.delete(pos)
     assert arr == make_dyn_array(values)
 
