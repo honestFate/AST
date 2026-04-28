@@ -35,10 +35,24 @@ def test_delete(make_dyn_array, values, pos, expected):
     ([1, 2, 4], 4),
     ([1, 2, 4], 100)
 ])
-def test_index_exception(make_dyn_array, values, pos):
+def test_insert_index_exception(make_dyn_array, values, pos):
+    arr = make_dyn_array(values)
+    with pytest.raises(IndexError):
+        arr.insert(pos, 0)
+    assert arr == make_dyn_array(values)
+
+@pytest.mark.parametrize("values, pos", [
+    ([], -1),
+    ([], 1),
+    ([], 0),
+    ([1, 2, 4], -10),
+    ([1, 2, 4], 3),
+    ([1, 2, 4], 4),
+    ([1, 2, 4], 100)
+])
+def test_delete_index_exception(make_dyn_array, values, pos):
     arr = make_dyn_array(values)
     with pytest.raises(IndexError):
         arr.insert(pos, "some value")
-    with pytest.raises(IndexError):
-        arr.delete(pos)
     assert arr == make_dyn_array(values)
+
