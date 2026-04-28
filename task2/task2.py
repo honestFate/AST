@@ -65,10 +65,7 @@ class LinkedList2:
         return i
 
     def insert(self, afterNode, newNode):
-        if afterNode is None:
-            self.add_in_head(newNode)
-            return
-        if afterNode == self.tail:
+        if afterNode is None or afterNode == self.tail:
             self.add_in_tail(newNode)
             return
         newNode.next = afterNode.next
