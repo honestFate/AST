@@ -124,15 +124,15 @@ def test_delete_all(make_linked_list_2, linked_list_2_to_list, values, param, ex
 
 @pytest.mark.parametrize("values, insert_pos, param, expected", [
     ([], None, 0, [0]),
-    ([1], None, 0, [0, 1]),
+    ([1], None, 0, [1, 0]),
     ([1], 0, 0, [1, 0]),
-    ([0, 1], None, 2, [2, 0, 1]),
+    ([0, 1], None, 2, [0, 1, 2]),
     ([0, 1], 0, 2, [0, 2, 1]),
     ([0, 1], 1, 2, [0, 1, 2]),
     ([-1, 0, 1], 2, 2, [-1, 0, 1, 2]),
     ([1, 2, 3, 4, 5], 3, 0, [1, 2, 3, 4, 0, 5]),
     ([1, 2, 3, 4, 5], 4, 0, [1, 2, 3, 4, 5, 0]),
-    ([1, 2, 3, 4, 5], None, 0, [0, 1, 2, 3, 4, 5])
+    ([1, 2, 3, 4, 5], None, 0, [1, 2, 3, 4, 5, 0])
 ])
 def test_insert(make_linked_list_2, linked_list_2_to_list, get_node_by_id, values,
                 insert_pos, param, expected):
