@@ -45,3 +45,7 @@ line-ending = "auto"
 
 [tool.ruff.lint.flake8-pytest-style]
 parametrize-names-type = "csv"
+
+[tool.pytest.ini_options]
+python_files = ["task*_3.py"]
+testpaths = ["task1", "task2", "task3"]

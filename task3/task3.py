@@ -1,7 +1,8 @@
 import ctypes
 
+
 class DynArray:
-    
+
     def __init__(self):
         self.count = 0
         self.capacity = 16
@@ -18,14 +19,11 @@ class DynArray:
         if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
         return self.array[i]
-    
+
     def __eq__(self, second_arr):
         if len(self) != len(second_arr):
             return False
-        for i in range(self.count):
-            if self.array[i] != second_arr[i]:
-                return False
-        return True
+        return all(self.array[i] == second_arr[i] for i in range(self.count))
 
     def resize(self, new_capacity):
         new_array = self.make_array(new_capacity)
@@ -41,21 +39,21 @@ class DynArray:
         self.count += 1
 
     def insert(self, i, itm):
-        if i == self.count:
-            self.append(itm)
-            return
         if i < 0 or i > self.count:
             raise IndexError('Index is out of bounds')
         if self.count == self.capacity:
             self.resize(2*self.capacity)
-        end = self.count
-        while end > i:
-            self.array[end] = self.array[end-1]
-            end -= 1
+        for k in range(self.count, i, -1):
+            self.array[k] = self.array[k - 1]
         self.array[i] = itm
         self.count += 1
 
     def delete(self, i):
-        if i < 0 or i > self.count:
+        if i < 0 or i >= self.count:
             raise IndexError('Index is out of bounds')
-        # удаляем объект в позиции i
+        for k in range(i, self.count - 1):
+            self.array[k] = self.array[k + 1]
+        self.array[self.count - 1] = None
+        self.count -= 1
+        if self.count < self.capacity / 2 and self.capacity > self.min_capacity:
+            self.resize((self.capacity * 3) // 2)

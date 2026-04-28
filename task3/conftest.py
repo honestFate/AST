@@ -1,5 +1,7 @@
 import pytest
+
 from task3 import DynArray
+
 
 @pytest.fixture
 def make_dyn_array():
