@@ -1,3 +1,5 @@
+import random
+
 import pytest
 
 
@@ -55,4 +57,35 @@ def test_delete_index_exception(make_dyn_array, values, pos):
     with pytest.raises(IndexError):
         arr.delete(pos)
     assert arr == make_dyn_array(values)
+
+@pytest.mark.parametrize("size, expected_size", [
+    (16, 32),
+    (32, 64),
+    (1024, 2048),
+    (0, 16),
+    (1, 16),
+    (5, 16),
+    (15, 16)
+])
+def test_insert_buffer(make_rand_dyn_array, size, expected_size):
+    arr = make_rand_dyn_array(size)
+    arr.insert(size, 0)
+    assert arr.capacity == expected_size
+
+@pytest.mark.parametrize("size, empty_size, expected_size", [
+    (16, 16, 21),
+    (17, 15, 32),
+    (2, 14, 16),
+    (128, 0, 128),
+    (128, 128, 170),
+    (25, 50, 50),
+    (26, 50, 50),
+    (27, 50, 51)
+])
+def test_delete_buffer(make_rand_dyn_array, size, empty_size, expected_size):
+    arr = make_rand_dyn_array(size)
+    if size + empty_size != arr.capacity:
+        arr.resize(size + empty_size)
+    arr.delete(random.randint(0, size - 1))
+    assert arr.capacity == expected_size
 

@@ -56,4 +56,4 @@ class DynArray:
         self.array[self.count - 1] = None
         self.count -= 1
         if self.count < self.capacity / 2 and self.capacity > self.min_capacity:
-            self.resize((self.capacity * 3) // 2)
+            self.resize(int(self.capacity / 1.5))
