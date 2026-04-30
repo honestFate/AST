@@ -4,6 +4,7 @@ from task2_2 import (
     linked_list_2_is_cycled,
     linked_list_2_reverse,
     linked_list_2_sort,
+    linked_list_2_bubble_sort,
 )
 
 from task2 import LinkedList2, Node
@@ -257,6 +258,26 @@ def test_sort(make_linked_list_2, linked_list_2_to_list, values, expected):
     result = linked_list_2_sort(linked_list)
     check_head_and_tail(result, expected)
     assert linked_list_2_to_list(result) == expected
+
+@pytest.mark.parametrize("values, expected", [
+    ([], []),
+    ([1], [1]),
+    ([100], [100]),
+    ([0, 1], [0, 1]),
+    ([1, 0], [0, 1]),
+    ([0, 1, 2], [0, 1, 2]),
+    ([2, 1, 0], [0, 1, 2]),
+    ([1, 2, 0], [0, 1, 2]),
+    ([-1, 2, 0], [-1, 0, 2]),
+    ([3, 1, 4, 1, 5, 9, 2, 6, 5], [1, 1, 2, 3, 4, 5, 5, 6, 9]),
+    ([1, 1, 1, 1], [1, 1, 1, 1]),
+    ([5, 4, 3, 2, 1], [1, 2, 3, 4, 5])
+])
+def test_bubble_sort(make_linked_list_2, linked_list_2_to_list, values, expected):
+    linked_list = make_linked_list_2(values)
+    linked_list_2_bubble_sort(linked_list)
+    check_head_and_tail(linked_list, expected)
+    assert linked_list_2_to_list(linked_list) == expected
 
 @pytest.mark.parametrize("values_1, values_2, expected", [
     ([], [], []),
