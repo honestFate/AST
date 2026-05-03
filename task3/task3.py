@@ -20,6 +20,11 @@ class DynArray:
             raise IndexError('Index is out of bounds')
         return self.array[i]
 
+    def __setitem__(self, i, value):
+        if i < 0 or i >= self.count:
+            raise IndexError('Index is out of bounds')
+        self.array[i] = value
+
     def __eq__(self, second_arr):
         if len(self) != len(second_arr):
             return False
@@ -56,4 +61,5 @@ class DynArray:
         self.array[self.count - 1] = None
         self.count -= 1
         if self.count < self.capacity / 2 and self.capacity > self.min_capacity:
-            self.resize(int(self.capacity / 1.5))
+            self.resize(max(int(self.capacity / 1.5), self.min_capacity))
+

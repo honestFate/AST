@@ -1,6 +1,7 @@
 import random
 
 import pytest
+from task3_2 import BankDynArray
 
 from task3 import DynArray
 
@@ -22,3 +23,8 @@ def make_rand_dyn_array():
             arr.append(random.randint(1, 100))
         return arr
     return _make_dyn_array
+
+@pytest.fixture
+def banker_array():
+    return BankDynArray()
+
