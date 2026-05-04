@@ -1,10 +1,10 @@
 import pytest
 from task2_2 import (
+    linked_list_2_bubble_sort,
     linked_list_2_concat,
     linked_list_2_is_cycled,
     linked_list_2_reverse,
     linked_list_2_sort,
-    linked_list_2_bubble_sort,
 )
 
 from task2 import LinkedList2, Node

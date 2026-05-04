@@ -22,7 +22,7 @@ class DummyLinkedList2:
 
     def find(self, val):
         node = self.head.next
-        while type(node) != Dummy:
+        while type(node) is not Dummy:
             if node.value == val:
                 return node
             node = node.next
@@ -31,7 +31,7 @@ class DummyLinkedList2:
     def find_all(self, val):
         found_nodes = []
         node = self.head.next
-        while type(node) != Dummy:
+        while type(node) is not Dummy:
             if node.value == val:
                 found_nodes.append(node)
             node = node.next
@@ -39,7 +39,7 @@ class DummyLinkedList2:
 
     def delete(self, val, all=False):
         node = self.head.next
-        while type(node) != Dummy:
+        while type(node) is not Dummy:
             if node.value == val:
                 node.prev.next = node.next
                 node.next.prev = node.prev
@@ -54,7 +54,7 @@ class DummyLinkedList2:
     def len(self):
         node = self.head.next
         i = 0
-        while type(node) != Dummy:
+        while type(node) is not Dummy:
             i += 1
             node = node.next
         return i
@@ -221,7 +221,7 @@ memory: O(n)
 рефлексия: почему-то подумал, что не нужно писать саму сортировку.
 Добавил linked_list_2_bubble_sort, вложенный цикл с O(n^2) сложностью и
 O(1) по памяти. Большенство алгоритмов не подходят, т.к. нет произвольного
-доступа к элементам, которое в них подразумевается. 
+доступа к элементам, которое в них подразумевается.
 
 
 task: 2.13
