@@ -6,6 +6,8 @@ class Stack:
         return len(self.stack)
 
     def pop(self):
+        if self.size() == 0:
+            return None
         return self.stack.pop()
 
     def push(self, value):
