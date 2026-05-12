@@ -18,3 +18,15 @@ class Stack:
             return None
         return self.stack[0]
 
+    def tail_pop(self):
+        if self.size() == 0:
+            return None
+        return self.stack.pop()
+
+    def tail_push(self, value):
+        self.stack.append(value)
+
+    def tail_peek(self):
+        if self.size() == 0:
+            return None
+        return self.stack[-1]
