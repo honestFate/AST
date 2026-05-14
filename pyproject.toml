@@ -48,4 +48,5 @@ parametrize-names-type = "csv"
 
 [tool.pytest.ini_options]
 python_files = ["task*_3.py"]
-testpaths = ["task1", "task2", "task3"]
+testpaths = ["task1", "task2", "task3", "task4", "task5"]
+pythonpath = ["."]
