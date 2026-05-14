@@ -81,20 +81,29 @@ task: 4.6
 name: balanced check (three types)
 time: O(n)
 memory: O(n)
+рефлексия: использовал словарь для сопоставления типов скобок
+также set для удобства проверки типа скобки открывающая/закры-
+вающая.
 
 task: 4.7
 name: minimum element in stack
 time: O(1)
 memory: O(n)
+рефлексия: добавил в класс метод get_min, расширил push и pop
+чтобы обновлять стек для хранения минимальных значений.
 
 task: 4.8
 name: average of all elements in stack
 time: O(1)
 memory: O(n)
+рефлексия: добавил в класс метод get_mean, расширил push и pop
+чтобы обновляли поле _sum.
 
 task: 4.9
 name: postfix expression evaluation
 time: O(n)
 memory: O(n)
-
+рефлексия: копипастил как в примере a = pop() b = pop() a + b,
+нужно переписать на словарь с лямбда функциями.
 """
+
