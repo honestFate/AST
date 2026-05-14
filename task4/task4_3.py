@@ -1,7 +1,7 @@
 import pytest
-from task4_2 import evaluate_postfix, is_balanced, is_balanced_advanced
 
-from task4 import Stack
+from .task4 import Stack
+from .task4_2 import evaluate_postfix, is_balanced, is_balanced_advanced
 
 
 @pytest.mark.parametrize("values, expected",[

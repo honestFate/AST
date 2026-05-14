@@ -1,6 +1,6 @@
 import pytest
 
-from task4 import Stack
+from .task4 import Stack
 
 
 @pytest.fixture

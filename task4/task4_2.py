@@ -1,4 +1,4 @@
-from task4 import Stack
+from .task4 import Stack
 
 
 def is_balanced(line):
