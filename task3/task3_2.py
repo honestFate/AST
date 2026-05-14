@@ -13,43 +13,21 @@ class BankDynArray(DynArray):
         self._credits -= amount
         assert self._credits >= 0
 
-    def append(self, itm):
+    def _on_add_start(self):
         self._credits += self.APPEND_TARIFF
-        if self.count == self.capacity:
-            self.charge(self.count)
-            self.resize(2 * self.capacity)
-        self.array[self.count] = itm
-        self.count += 1
-        self.charge(1)
 
-    def insert(self, i, itm):
-        if i < 0 or i > self.count:
-            raise IndexError('Index is out of bounds')
-        self._credits += self.APPEND_TARIFF
-        if self.count == self.capacity:
-            self.charge(self.count)
-            self.resize(2 * self.capacity)
-        for k in range(self.count, i, -1):
-            self.array[k] = self.array[k - 1]
-        self.charge(self.count - i)
-        self.array[i] = itm
-        self.count += 1
-        self.charge(1)
-
-    def delete(self, i):
-        if i < 0 or i >= self.count:
-            raise IndexError('Index is out of bounds')
+    def _on_remove_start(self):
         self._credits += self.DELETE_TARIFF
-        for k in range(i, self.count - 1):
-            self.array[k] = self.array[k + 1]
-        self.charge(self.count - i - 1)
-        self.array[self.count - 1] = None
-        self.count -= 1
+
+    def _on_copy(self, n):
+        self.charge(n)
+
+    def _on_shift(self, n):
+        self.charge(n)
+
+    def _on_write(self):
         self.charge(1)
-        if self.count < self.capacity / 2 and self.capacity > self.min_capacity:
-            new_capacity = max(int(self.capacity / 1.5), self.min_capacity)
-            self.charge(self.count)
-            self.resize(new_capacity)
+
 
 class MdDynArray:
     def __init__(self, dims, fill=None):
@@ -95,5 +73,18 @@ task: 3.2
 name: delete value in dynamic array
 time: O(n)
 memory: O(n)
+
+
+task: 3.6
+name: BankDynArray
+рефлексия: использовал гораздо большие тарифы, чтобы пройти
+тесты, стоило изменить порог сжатия массива, либо тарифы на
+реаллокацию
+
+task: 3.7
+name: MdDynArray
+рефлексия: реализовал рекурсивный многомерный массив, если
+количество измерений известно при инициализации, стоило
+реализовать через обычный одномерный массив внутри
 """
 

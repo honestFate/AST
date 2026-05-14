@@ -30,6 +30,21 @@ class DynArray:
             return False
         return all(self.array[i] == second_arr[i] for i in range(self.count))
 
+    def _on_add_start(self):
+        pass
+
+    def _on_remove_start(self):
+        pass
+
+    def _on_copy(self, n):
+        pass
+
+    def _on_shift(self, n):
+        pass
+
+    def _on_write(self):
+        pass
+
     def resize(self, new_capacity):
         new_array = self.make_array(new_capacity)
         for i in range(self.count):
