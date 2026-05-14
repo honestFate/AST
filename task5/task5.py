@@ -12,3 +12,4 @@ class Queue:
 
     def size(self):
         return len(self.queue)
+

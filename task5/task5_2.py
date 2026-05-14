@@ -2,9 +2,7 @@ import ctypes
 
 from task4.task4 import Stack
 
-APPEND_MODE = 0
-REMOVE_MODE = 1
-QUEQUE_CAPACITY = 42
+QUEUE_CAPACITY = 42
 
 class CyclePointer:
     def __init__(self, limit):
@@ -20,19 +18,22 @@ class CyclePointer:
 
 class StaticArrayQueue:
     def __init__(self):
-        self.queue = self._make_array(QUEQUE_CAPACITY)
-        self.start = CyclePointer(QUEQUE_CAPACITY)
-        self.end = CyclePointer(QUEQUE_CAPACITY)
+        self.queue = self._make_array(QUEUE_CAPACITY)
+        self.start = CyclePointer(QUEUE_CAPACITY)
+        self.end = CyclePointer(QUEUE_CAPACITY)
         self.len = 0
+
+    def _is_full(self):
+        return self.len == QUEUE_CAPACITY
 
     def _make_array(self, new_capacity):
         return (new_capacity * ctypes.py_object)()
 
     def enqueue(self, item):
-        if self.size() == QUEQUE_CAPACITY:
-            raise OverflowError("QUEQUE_CAPACITY of {QUEQUE_CAPACITY} is full, " \
+        if self.size() == QUEUE_CAPACITY:
+            raise OverflowError(f"QUEUE_CAPACITY of {QUEUE_CAPACITY} is full, " \
             "unable to add new items")
-        self.queue[self.end] = item
+        self.queue[self.end.get()] = item
         self.end.shift()
         self.len += 1
 
@@ -52,7 +53,6 @@ class StackQueue:
     def __init__(self):
         self.append_queue = Stack()
         self.remove_queue = Stack()
-        self.mode = APPEND_MODE
 
     def enqueue(self, item):
         self.append_queue.push(item)
@@ -79,7 +79,8 @@ def reverse_order(queue):
     if queue.size() == 0:
         return
     stack = Stack()
-    while queue.peek() is not None:
+    while queue.size() > 0:
         stack.push(queue.dequeue())
-    while stack.peek() is not None:
-        queue.push(stack.pop())
+    while stack.size() > 0:
+        queue.enqueue(stack.pop())
+
