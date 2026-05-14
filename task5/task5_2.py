@@ -84,3 +84,41 @@ def reverse_order(queue):
     while stack.size() > 0:
         queue.enqueue(stack.pop())
 
+"""
+task: 5.1
+name: queue (list)
+enqueue: time O(1) амортизированно, memory O(1)
+dequeue: time O(n), memory O(1)
+size: time O(1), memory O(1)
+
+task: 5.2
+name: enqueue and dequeue complexity
+enqueue O(1) амортизированно, так как используется list
+как реализация очереди, append в конец происходит за O(1),
+если не нужна реаллокация. dequeue в свою очередь за O(n),
+так как удаляем из начала и нужно сдвинуть все элементы,
+что находятся правее.
+
+task: 5.3
+name: rotate queue
+time: O(n)
+memory: O(1)
+
+task: 5.4
+name: queue (two stacks)
+enqueue: time O(1), memory O(1)
+dequeue: time O(1) амортизированно, memory O(1)
+
+task: 5.5
+name: reverse queue
+time: O(n)
+memory: O(n)
+
+task: 5.6
+name: queue (static array)
+enqueue: time O(1), memory O(1)
+dequeue: time O(1), memory O(1)
+is_full: time O(1), memory O(1)
+size: time O(1), memory O(1)
+"""
+
