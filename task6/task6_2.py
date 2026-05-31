@@ -95,6 +95,10 @@ task: 7.1
 name: front vs tail complexity
 time: addFront/removeFront O(n), addTail/removeTail O(1) (addTail амортизированно)
 memory: O(1)
+В Deque реализованной через list addTail = append и removeTail = pop выполняются
+за O(1) амортизированно, т.к. сдвиг не нужен. addFront = insert и
+removeFront = pop(0) работают за O(n), при вставке/удалении в начало листа все
+последующие элементы сдвигаются
 
 task: 7.2
 name: tests
