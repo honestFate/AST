@@ -92,9 +92,9 @@ def is_balanced(expression):
 
 """
 task: 7.1
-name: addFront/removeFront vs addTail/removeTail complexity
+name: front vs tail complexity
 time: addFront/removeFront O(n), addTail/removeTail O(1) (addTail амортизированно)
-memory: O(1) на операцию
+memory: O(1)
 
 task: 7.2
 name: tests
@@ -102,13 +102,13 @@ time: O(n)
 memory: O(n)
 
 task: 7.3
-name: palindrome check via deque
+name: palindrome check
 time: O(n)
 memory: O(n)
 
 task: 7.4
 name: minimum element in deque
-time: get_min O(1); удаление текущего минимума O(n) (пересчёт)
+time: get_min O(1); удаление текущего минимума O(n)
 memory: O(1)
 
 task: 7.5
