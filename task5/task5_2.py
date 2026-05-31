@@ -103,16 +103,23 @@ task: 5.3
 name: rotate queue
 time: O(n)
 memory: O(1)
+рефлексия: пушу удаленный элемент n % queue.size() раз, чтобы
+оптимизировать количество поворотов
 
 task: 5.4
 name: queue (two stacks)
 enqueue: time O(1), memory O(1)
 dequeue: time O(1) амортизированно, memory O(1)
+рефлексия: сначала думал перекидывать при каждой смене операции,
+потом сделал этот вариант, где перекидываются элементы только тогда,
+когда заканчиваются элементы в remove_queue
 
 task: 5.5
 name: reverse queue
 time: O(n)
 memory: O(n)
+рефлексия: использовал стек из task4, чтобы добавить и извлечь из него,
+получается обрытный порядок элементов
 
 task: 5.6
 name: queue (static array)
@@ -120,5 +127,8 @@ enqueue: time O(1), memory O(1)
 dequeue: time O(1), memory O(1)
 is_full: time O(1), memory O(1)
 size: time O(1), memory O(1)
+рефлексия: выбрал вариант с хранением длины, он мне показался проще,
+не нужно считать size() и все элементы массива используются.
+Указатель решил вынести в CyclePointer.
 """
 
