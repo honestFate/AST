@@ -21,7 +21,7 @@ class OrderedList:
     def is_ascending(self):
         return self.__ascending
 
-    def _precedes(self, value, other):
+    def _should_go_first(self, value, other):
         result = self.compare(value, other)
         if self.__ascending:
             return result < 0
@@ -62,7 +62,7 @@ class OrderedList:
     def add(self, value):
         new_node = Node(value)
         node = self.head
-        while node is not None and not self._precedes(value, node.value):
+        while node is not None and not self._should_go_first(value, node.value):
             node = node.next
         self._insert_before(node, new_node)
 
@@ -71,7 +71,7 @@ class OrderedList:
         while node is not None:
             if self.compare(node.value, val) == 0:
                 return node
-            if self._precedes(val, node.value):
+            if self._should_go_first(val, node.value):
                 return None
             node = node.next
         return None
@@ -82,7 +82,7 @@ class OrderedList:
             if self.compare(node.value, val) == 0:
                 self._unlink(node)
                 return
-            if self._precedes(val, node.value):
+            if self._should_go_first(val, node.value):
                 return
             node = node.next
 
@@ -151,7 +151,7 @@ class OrderedList:
         while node is not None:
             if self.compare(node.value, val) == 0:
                 return index
-            if self._precedes(val, node.value):
+            if self._should_go_first(val, node.value):
                 return -1
             node = node.next
             index += 1

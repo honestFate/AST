@@ -6,7 +6,7 @@ def merge_ordered_lists(first, second):
     a = first.head
     b = second.head
     while a is not None and b is not None:
-        if first.compare(a.value, b.value) == 0 or first._precedes(a.value, b.value):
+        if first.compare(a.value, b.value) == 0 or first._should_go_first(a.value, b.value):
             result._append(Node(a.value))
             a = a.next
         else:
