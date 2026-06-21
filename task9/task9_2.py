@@ -103,3 +103,4 @@ name: dictionary with bit-string keys
 time: O(k) на вычисление индекса, O(1) на доступ (k фиксирована)
 memory: O(2^k)
 """
+

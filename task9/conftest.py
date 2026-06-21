@@ -12,3 +12,4 @@ def make_native_dictionary():
         return table
 
     return _make
+

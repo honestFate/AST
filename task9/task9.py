@@ -31,3 +31,4 @@ class NativeDictionary:
         if index is None or self.slots[index] != key:
             return None
         return self.values[index]
+

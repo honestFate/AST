@@ -139,3 +139,4 @@ def test_bitstring_delete():
     assert d.is_key("011") is False
     assert d.get("011") is None
     assert d.delete("011") is False
+
